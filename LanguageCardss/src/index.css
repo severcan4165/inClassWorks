@@ -1,0 +1,20 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:linear-gradient(to right, yellow, white) ;
+  height: 100vh;
+}
+
+.lang-card:hover{
+  box-shadow: 2px 2px 5px 5px rgb(73, 229, 216);
+}
+.lang-image{
+  transition: transform 0.5s;
+}
+.lang-card:hover .lang-image{
+  transform: scale(1.1);
+}
