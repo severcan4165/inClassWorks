@@ -1,0 +1,34 @@
+import { useState,useEffect } from "react";
+import axios from "axios";
+import AddTutorial from "../components/AddTutorial";
+import TutorialList from "../components/TutorialList";
+
+const Home = () => {
+  const [tutorials, setTutorials] = useState([]);
+  const url ="https://cw-axios-example.herokuapp.com/api/tutorials";
+
+  const getTutorials = async () =>{
+    try {
+      const {data} = await axios(url);
+
+      setTutorials(data);
+      
+    } catch (error) {
+      console.log(error);
+    }
+    
+  }
+  useEffect(() => {
+    getTutorials();
+  }, [])
+  
+
+  return (
+    <>
+      <AddTutorial getTutorials ={getTutorials}/>
+      <TutorialList tutorials ={tutorials} />
+    </>
+  );
+};
+
+export default Home;
