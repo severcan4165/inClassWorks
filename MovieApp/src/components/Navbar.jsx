@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import avatar from "../assets/icons/avatar.png";
+import { logOut } from "../auth/firebase";
+import { AuthContext } from "../context/AuthContext";
 
 
 const Navbar = () => {
-  const currentUser = { displayName: "Salih" };
+  const { currentUser } = useContext(AuthContext);
   // const currentUser = false;
   return (
     <>
@@ -34,6 +36,7 @@ const Navbar = () => {
                   style={{ height: 25, width: 25 }}
                   alt="user"
                   loading="lazy"
+                  referrerPolicy="no-referrer"
                 />
               </span>
               <ul
@@ -60,7 +63,7 @@ const Navbar = () => {
                   <span
                     className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                     role="button"
-                    // onClick={() => logOut()}
+                    onClick={() => logOut()}
                   >
                     Logout
                   </span>
